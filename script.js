@@ -6,8 +6,7 @@ var logoVisible = false;
 var buttonsVisible = false;
 
 // speed vars
-const animationSpeed = 25;
-const slowerAnimationSpeed = 30;
+const animationSpeed = 41; // this is ~24fps
 const blinkSpeed = 30;
 
 // starting frame
@@ -77,17 +76,17 @@ function voldown() {
 }
 
 function forwardAnimate(animation) {
-    var i = 0;
-    return new Promise(resolve => {
-        let localInterval = setInterval(() => {
-            displayImage = animation[i];
-            i++;
-            if (i === animation.length) {
-                clearInterval(localInterval);
-                displayImage = animation[animation.length - 1];
-                resolve();
+    var i = 0; // establish iterator counter
+    return new Promise(resolve => { // "promise" allows it to kinda ping the rest of the software when the animation is complete
+        let localInterval = setInterval(() => { // create the interval for the animation
+            displayImage = animation[i]; // set the main display image to the animation frame corresponding to the iterating counter
+            i++; // increment the iterating counter by 1
+            if (i === animation.length) { // if the iterator is equal to the total number of frames in the animation, then
+                clearInterval(localInterval); // stop the interval
+                displayImage = animation[animation.length - 1]; // set the final static frame at the end of the animation
+                resolve(); // send the ping saying the animation is complete
             }
-        }, animationSpeed)
+        }, animationSpeed) // this allows me to use a single variable for the animation speed instead of coding the same number into every animate function
     })
 }
 
