@@ -2,10 +2,6 @@ const display = document.getElementById('displayimage');
 
 // global vars
 var i = 0;
-var lastPlayed;
-var selected;
-var tiltEnabled = true;
-var lastKey;
 var logoVisible = false;
 var buttonsVisible = false;
 
@@ -15,7 +11,7 @@ const slowerAnimationSpeed = 30;
 const blinkSpeed = 30;
 
 // starting frame
-var displayImage = './resources/blink/1.png';
+var displayImage = './resources/???';
 
 // volume vars
 let volthreshold = Number(localStorage.getItem("volumethreshold"));
@@ -133,7 +129,7 @@ document.onkeyup = function(event) {
 
 window.onload = async function () {
 
-    // ------------------ VOLUME FUNCTIONS - this needs to be inside window.onload I'm pretty sure
+    // ------------------ VOLUME FUNCTIONS - this needs to be inside window.onload I'm pretty sure. why? don't remember.
 
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
     const audioContext = new AudioContext();
@@ -204,6 +200,10 @@ window.onload = async function () {
     setInterval(setVolVar, 10)
 
     // vvvvvvv MAIN ANIMATION FUNCTION SHOULD BE HERE vvvvvv
+
+    // obviously there is no function written yet.
+
+    // ^^^^^^^ MAIN ANIMATION FUNCTION SHOULD BE HERE ^^^^^^
 
     setTimeout(setAnimate, 10);
 
