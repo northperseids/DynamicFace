@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+</head>
+
+<title>VoxFace</title>
+
+<script src="./mainapp.js" defer></script>
+
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="./resources/192x192.png" />
+
+<body>
+    <button class="refreshbutton buttons" id="refreshbutton"> </button>
+    <button class="videobutton buttons" id="videobutton" onclick="showLogo()"> </button>
+    <button class="volumeup volumecontrols" id="volumeup" onclick="volup()">^</button>
+    <button class="volumedown volumecontrols" id="volumedown" onclick="voldown()">v</button>
+    <div class="currentvolume volumecontrols" id="currentvol"></div>
+    <button class="precache volumecontrols" id="precache" onclick="preCache()">PRE</button>
+    <button class="showbutton buttons" id="showbutton" onclick="setButtonsVisible()"> </button>
+    <a class="contestbutton buttons" id="contestbutton" href="./contest.html"> </a>
+    <div class="main" id="main">
+        <img id="displayimage" width="100%" />
+    </div>
+    <div class="logoscreen logoview" id="logoscreen"><logo class="logoview"></logo></div>
+</body>
+
+</html>

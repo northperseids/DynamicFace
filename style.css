@@ -1,0 +1,175 @@
+body {
+    overflow: hidden;
+    background-color: black;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.hide {
+    display: none;
+    min-width: 100%;
+    min-height: 908px;
+    position: absolute;
+    top: 0px;
+    left: -125px;
+}
+
+.main {
+    display: block;
+}
+
+.buttons {
+    border: none;
+    font-size: 50px;
+}
+
+.showbutton {
+    background-color: transparent;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100px;
+    height: 100px;
+    z-index: 10;
+}
+
+.currentvolume {
+    background-color: white;
+    position: absolute;
+    top: 50px;
+    right: 150px;
+    width: 100px;
+    height: 100px;
+    z-index: 10;
+}
+
+.volumecontrols {
+    visibility: hidden;
+    font-family: monospace;
+    font-size: 40px;
+}
+
+.volumeup {
+    background-color: transparent;
+    position: absolute;
+    top: 0px;
+    right: 350px;
+    width: 150px;
+    height: 100px;
+    z-index: 10;
+}
+
+.volumedown {
+    background-color: transparent;
+    position: absolute;
+    top: 100px;
+    right: 350px;
+    width: 150px;
+    height: 100px;
+    z-index: 10;
+}
+
+.videobutton {
+    background-color: transparent;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50%;
+    height: 100%;
+    z-index: 10;
+}
+
+.refreshbutton {
+    background-color: transparent;
+    position: absolute;
+    top: 240px;
+    right: 85px;
+    width: 550px;
+    height: 200px;
+    z-index: 10;
+}
+
+.contestbutton {
+    position: absolute;
+    background-color: transparent;
+    bottom: 0px;
+    right: 0px;
+    width: 200px;
+    height: 200px;
+}
+
+.precache {
+    position: absolute;
+    background-color: transparent;
+    bottom: 0px;
+    right: 250px;
+    width: 100px;
+    height: 100px;
+}
+
+.logoview {
+    display: none;
+}
+
+.logoscreen {
+    width: 2736px;
+    height: 1824px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    background-color: black;
+}
+
+.logoscreen logo {
+    background-color: white;
+    background-image: url('./resources/logo.png');
+    animation: moveX 3.5s linear 0s infinite alternate, moveY 3s linear 0s infinite alternate;
+    -webkit-animation: moveX 3.5s linear 0s infinite alternate, moveY 3s linear 0s infinite alternate;
+    width: 400px;
+    height: 328px;
+    position: absolute;
+}
+
+
+@-webkit-keyframes moveX {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 970px;
+    }
+}
+
+@keyframes moveX {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 970px;
+    }
+}
+
+@-webkit-keyframes moveY {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: 570px;
+    }
+}
+
+@keyframes moveY {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: 570px;
+    }
+}
