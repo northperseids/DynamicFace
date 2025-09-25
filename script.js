@@ -7,17 +7,16 @@ var buttonsVisible = false;
 
 // speed vars
 const animationSpeed = 41; // this is ~24fps
-const blinkSpeed = 30;
-
-// starting frame
-var displayImage = './resources/???';
 
 // volume vars
 let volthreshold = Number(localStorage.getItem("volumethreshold"));
 if (volthreshold === null || volthreshold === NaN) {
     volthreshold = 0.05;
-}
+};
 document.getElementById('currentvol').innerText = volthreshold;
+
+
+// Frames
 
 
 // FUNCTIONS -----------------------------
@@ -61,51 +60,36 @@ function setButtonsVisible() {
             element.style = 'visibility: hidden;'
         });
     }
-}
+};
 
 function volup() {
     volthreshold += 0.01;
     document.getElementById('currentvol').innerText = Math.round(volthreshold * 100) / 100;
     localStorage.setItem("volumethreshold", `${volthreshold}`);
-}
+};
 
 function voldown() {
     volthreshold -= 0.01;
     document.getElementById('currentvol').innerText = Math.round(volthreshold * 100) / 100;
     localStorage.setItem("volumethreshold", `${volthreshold}`);
-}
+};
 
-function forwardAnimate(animation) {
-    var i = 0; // establish iterator counter
-    return new Promise(resolve => { // "promise" allows it to kinda ping the rest of the software when the animation is complete
-        let localInterval = setInterval(() => { // create the interval for the animation
-            displayImage = animation[i]; // set the main display image to the animation frame corresponding to the iterating counter
-            i++; // increment the iterating counter by 1
-            if (i === animation.length) { // if the iterator is equal to the total number of frames in the animation, then
-                clearInterval(localInterval); // stop the interval
-                displayImage = animation[animation.length - 1]; // set the final static frame at the end of the animation
-                resolve(); // send the ping saying the animation is complete
-            }
-        }, animationSpeed) // this allows me to use a single variable for the animation speed instead of coding the same number into every animate function
-    })
-}
-
-function reverseAnimate(animation) {
-    var iterator = animation.length - 1;
+function animate(animation, element) {
+    var iterator = 0;
     return new Promise(resolve => {
-        let localInterval = setInterval(() => {
-            displayImage = animation[iterator];
-            iterator--;
-            if (iterator < 0) {
-                clearInterval(localInterval);
-                displayImage = animation[0];
+        let interval = setInterval(() => {
+            element.src = animation[iterator];
+            iterator++;
+            if (iterator === 0) {
+                clearInterval(interval);
+                element.src = animation[animation.length - 1];
                 resolve();
             }
-        }, animationSpeed)
-    })
-}
+        }, animationSpeed);
+    });
+};
 
-document.onkeydown = function(event) {
+document.onkeydown = function (event) {
     if (!event) {
         // do nothing
     } else if (event.code === 'Space') {
@@ -114,15 +98,15 @@ document.onkeydown = function(event) {
         lastKey = event.code;
         console.log(lastKey)
     }
-}
+};
 
-document.onkeyup = function(event) {
+document.onkeyup = function (event) {
     if (!event) {
         // do nothing
     } else {
         lastKey = null;
     }
-}
+};
 
 // --------------------
 
@@ -155,7 +139,6 @@ window.onload = async function () {
     fucker.oldTilt = 'def';
     fucker.oldScreen = null;
     fucker.volume = false;
-    var chosen = false;
 
     function handleMotionEvent(event) {
 
@@ -200,11 +183,9 @@ window.onload = async function () {
 
     // vvvvvvv MAIN ANIMATION FUNCTION SHOULD BE HERE vvvvvv
 
-    // obviously there is no function written yet.
+    // main anim function
 
     // ^^^^^^^ MAIN ANIMATION FUNCTION SHOULD BE HERE ^^^^^^
-
-    setTimeout(setAnimate, 10);
 
     window.addEventListener("devicemotion", handleMotionEvent, true);
 
