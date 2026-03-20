@@ -17,7 +17,25 @@ document.getElementById('currentvol').innerText = volthreshold;
 
 
 // Frames
+const framestrings = [
+    "resources/frame0000.png",
+    "resources/frame0001.png",
+    "resources/frame0002.png",
+    "resources/frame0003.png",
+    "resources/frame0004.png",
+    "resources/frame0005.png",
+    "resources/frame0006.png",
+    "resources/frame0007.png",
+    "resources/frame0008.png",
+    "resources/frame0009.png",
+    "resources/frame0010.png",
+    "resources/frame0011.png",
+    "resources/frame0012.png",
+    "resources/frame0013.png",
+    "resources/frame0014.png"
+]
 
+var lastKey = null;
 
 // FUNCTIONS -----------------------------
 
@@ -96,17 +114,17 @@ document.onkeydown = function (event) {
         tiltEnabled = !tiltEnabled;
     } else {
         lastKey = event.code;
-        console.log(lastKey)
+        console.log('hello' + lastKey)
     }
 };
 
-document.onkeyup = function (event) {
+/* document.onkeyup = function (event) {
     if (!event) {
         // do nothing
     } else {
         lastKey = null;
     }
-};
+}; */
 
 // --------------------
 
@@ -151,7 +169,7 @@ window.onload = async function () {
 
         fucker.oldTilt = fucker.tilt;
 
-        if (tiltEnabled === true) {
+        if (tiltEnabled === 'true') {
             if (alpha < -threshold || alpha > threshold || beta < -threshold || beta > threshold || gamma < -threshold || gamma > threshold) {
                 return;
             } else {
@@ -173,7 +191,7 @@ window.onload = async function () {
                 }
             }
         } else {
-            if (lastKey === 'Digit1') {
+            if (lastKey === 'KeyS') {
                 console.log('fired')
             }
         }
@@ -184,6 +202,12 @@ window.onload = async function () {
     // vvvvvvv MAIN ANIMATION FUNCTION SHOULD BE HERE vvvvvv
 
     // main anim function
+
+    // blocking
+    
+    // button listener -> triggers different sequences.
+    // start w/ pupil movement
+    // if (btn === ?) -> pupil left/right
 
     // ^^^^^^^ MAIN ANIMATION FUNCTION SHOULD BE HERE ^^^^^^
 

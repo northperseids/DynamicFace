@@ -9,3 +9,9 @@ Rewrite of former animation-control software.
 ## Carryover features
 - Tilt control for all other animations
 - Voice-activated talking animation
+
+<details>
+<summary>(internal CCID)</summary>
+CCID.02.01.JS.DynamicFace.0&V
+CCID.04.04.JS.DynamicFace.0&V
+</details>
