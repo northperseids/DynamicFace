@@ -12,6 +12,6 @@ Rewrite of former animation-control software.
 
 <details>
 <summary>(internal CCID)</summary>
-CCID.02.01.JS.DynamicFace.0&V
+CCID.02.02.JS.DynamicFace.0&V
 CCID.04.04.JS.DynamicFace.0&V
 </details>
